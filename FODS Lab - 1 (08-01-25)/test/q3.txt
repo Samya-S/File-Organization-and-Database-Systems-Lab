@@ -1,0 +1,4 @@
+Q3: A table is given. Given b one can find g. Given e and f one find r. Given b,e,f one can find q and d. Draw entity relationship diagram.
+    Assume S and K are entities and L is relation between them.
+
+Solution: [S;g,b:Key b]----(L;q,d)----[K;e,f,r:Key e+f]
