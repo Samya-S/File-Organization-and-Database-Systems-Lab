@@ -1,0 +1,3 @@
+Question 3: Attributes: a,b,c,d,e,f   Key: ed   FD: e->f  and d->b Make ER diagram
+
+Solution: ER diagram [attributes:b,d Key d]-----(attributes:a,c)-----[attributes:f,e:Key e]

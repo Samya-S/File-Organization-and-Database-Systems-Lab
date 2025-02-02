@@ -1,0 +1,3 @@
+Question 2: abcd:(6,1,2,7)(9,1,2,9)(6,3,2,7)(6,3,5,7)(9,1,2,8)(3,4,1,7) Find partial dependencies.
+
+Solution: Key bcd and FD cd->a   bd->a

@@ -1,0 +1,24 @@
+Question 1: Following table represents
+
+i     0     1     2     3     4     5     6     7     8     9     10     11
+P    10     7     0   105   103    11   104   102     2     1      6    100
+Q     5   101     9     4     8     3
+
+the binary relation   (0,104) (1,102) (2,104) (3,105) (4,103) (5,100) (6,104) (7,102) (8,104) (9,102) (10,104) (11,100)
+
+Meaning: Q[0] is 5. It means 100 is related with 5.
+P[5] is 11. It means 100 is related with 11 also.
+P[11]=100 It means 100 is not related with any other.
+Q[2]=9 P[9]=1 P[1]=7 P[7]=102   102 is related with 9,1,7 
+
+
+Make table for representation of (0,101)(1,103)(2,101)(3,105)(4,100)(5,101)
+
+
+Solution:
+
+100:4   101:0,2,5   102:   103:1   104:   105:3
+
+i   	0   	1   	2   	3   	4   	5	
+P   	2     103   	5     105     100     101	
+Q   	4   	0     102   	1     104   	3
