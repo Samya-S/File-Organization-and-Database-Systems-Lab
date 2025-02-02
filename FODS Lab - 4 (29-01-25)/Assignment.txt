@@ -1,0 +1,163 @@
+i     0     1     2     3     4     5     6     7     8     9    10    11
+P    10     7     0   105   103    11   104   102     2     1     6   100
+Q     5   101     9     4     8     3 
+
+
+ 
+
+#include<stdio.h>
+int p[]={10,7,0,105,103,11,104,102,2,1,6,100};
+int q[]={5,101,9,4,8,3}; 
+
+// int g(int y) {  missing }
+int g(int y) {
+    int i,j;
+    i=y; 
+    while(i<100) 
+        i=p[i]; 
+    return(i); 
+}
+
+void main() {
+    int u,i;
+    scanf("%d",&u);
+
+    if(u<100) 
+        printf("%d",g(u));
+
+    // else { missing }
+    else {  
+        i=q[u-100];
+        while(i!=u) {
+            printf("%d,",i);
+            i=p[i]; 
+        }
+    }
+
+    return;
+}
+
+
+Above program input output behavior is as following. Write missing
+
+Input	 100	 101	  102	  105	         104	       2	 11      1
+Output	5,11	        9,1,7 	    3	  8,2,0,10,6	     104	100	   102
+Write output on 103,0,7,4
+
+Owner sets are 100:{5,11}  101:{}  102:{9,1,7}  103:{4}  104:{8,2,0,10,6} 105:{3}
+
+
+Put following information
+In OS  Anil, Dipu and Gyan are present.
+In CN Dipu and Hari are present.
+In LA  Anil is present.
+In MA Hari and Gyan are present.
+In BE are Lalit, Hari and Gyan are present.
+
+create table p (course char(10),name char(10));
+insert into p values ('OS','Anil'), ('OS','Dipu'),('OS','Gyan'),('CN','Dipu'),('CN','Hari'),('LA','Anil'), ('MA','Hari'), ('MA','Gyan'), ('BE','Lalit'),('BE','Hari'),('BE','Gyan');
+
+Write sql query to answer following questions for above information. Try different methods
+
+1: Which courses were done by Anil and Gyan together. OS
+select course from p where name='Anil' and course in (select course from p where name='Gyan');
+select a.course from p as a,p as b where a.course=b.course and a.name='Anil' and b.name='Gyan';
+
+2: Who are other students with Hari. Ans: Dipu,Lalit,Gyan,Gyan
+select name from p where name!='Hari' and course in(select course from p where name='Hari');
+select b.name from p as a,p as b where a.course=b.course and a.name='Hari' and b.name!='Hari';
+
+3: Who did two courses with Hari. Gyan
+
+4: In which course only Anil is present. LA
+select course from p where name='Anil' and course not in (select course from p where name!='Anil');
+select course as a from p where name='Anil' and not exists (select name from p where name!='Anil' and course=a);
+
+5: In which course there are more than one students.
+select distinct course from p as a where exists (select * from p where a.name!=p.name and course=a.course);
+
+
+
+
+
+
+My solutions:
+
+#include <stdio.h>
+
+int p[]={10,7,0,105,103,11,104,102,2,1,6,100};
+int q[]={5,101,9,4,8,3};
+
+int g(int y) {  
+    int val = p[y];
+   
+    while(val < 100) {
+        val = p[val];
+    }
+   
+    return val;
+}
+
+int main() {
+    int u,i;
+
+    scanf("%d",&u);
+   
+    if(u<100) {
+        printf("%d", g(u));
+    }
+    else {
+        int qi = u % 10;
+        int val = q[qi];
+       
+        while(val != u) {
+            printf("%d, ", val);
+            val = p[val];
+        }
+    }
+   
+    return 0;
+}
+
+
+
+drop table if exists p;
+
+create table p (course char[10], student char[10]);
+
+insert into p values
+("OS", "Anil"),
+("OS", "Dipu"),
+("OS", "Gyan"),
+("CN", "Dipu"),
+("CN", "Hari"),
+("LA", "Anil"),
+("MA", "Hari"),
+("MA", "Gyan"),
+("BE", "Lalit"),
+("BE", "Hari"),
+("BE", "Gyan");
+
+select course
+from p
+where course in (select course from p where student = "Anil") and student = "Gyan";
+
+select distinct student
+from p
+where course in (select course from p where student = "Hari") and student != "Hari";
+
+select student
+from p
+where course in (select course from p where student = 'Hari')
+group by student
+having count(distinct course) = 2;
+
+select course
+from p
+group by course
+having count(student) = 1 and student = 'Anil';
+
+select course
+from p
+group by course
+having count(student) > 1;
