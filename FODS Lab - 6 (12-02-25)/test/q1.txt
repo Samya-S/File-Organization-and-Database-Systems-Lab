@@ -1,0 +1,15 @@
+Question 1:  Make table   Initial P=93   Q=43  M=29
+Time	Job U TS=3	 Job V TS=8
+14	    P=Q+7	
+17	                 Q=P*9
+28	                 P=Q+3
+42	    P=M+Q	
+
+
+Solution:
+
+Time	Job U TS=3	 Job V TS=8	  P=71,TW(P)=0,TR(P)=0          Q=23,TW(Q)=0,TR(Q)=0
+14	    P=Q+7	                  P=50,TW(P)=3,TR(P)=0	                     TR(Q)=3
+17	                 Q=P*9	                   TR(P)=8	        Q=450,TW(Q)=8,TR(Q)=3
+28	                 P=Q+3	      P=453,TW(P)=8	                             TR(Q)=8
+42	    P=M+Q	                  No change in P=453 TW(P)=8	No change in TR(Q)           TR(M)=3
