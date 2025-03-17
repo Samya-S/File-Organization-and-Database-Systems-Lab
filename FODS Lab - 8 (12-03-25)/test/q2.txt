@@ -1,0 +1,9 @@
+Q2: Why following is non-serializable
+
+            19	       27	     44	      62	    67	      69	
+Job A	                       Read(Z)	                   Write(Y)	
+Job B	            Write(Y)            Read(W)	
+Job C	  Write(W)                               Write(Z)	
+
+Solution:  
+    Reason: [W(19,62) TS(C)<TS(B)] [Y(27,69) TS(B)<TS(A)] [Z(44,67) TS(A)<TS(C)] CBAC is cycle.

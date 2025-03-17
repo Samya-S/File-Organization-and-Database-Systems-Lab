@@ -1,0 +1,10 @@
+Q1: Give time stamps to P,Q,R,S,T so that there is no conflict.
+
+            10	      17	    19	      34	    45	      26	    67	      45	    29
+Job P	                     Write(V)                                           Write(Z)	
+Job Q	            Read(U)	
+Job R	                                                              Write(W)
+Job S	  Read(W)	                              Write(V)
+Job T	                                Write(U)            Write(Z)
+
+Solution:  QTPSR from ABCDE
