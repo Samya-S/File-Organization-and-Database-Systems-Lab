@@ -1,0 +1,10 @@
+Q1: Job with time stamp 17 reads a variable K at time 42. 
+Jobs with time stamp 8, 23 writes K at time 56 and 32 respectively.
+What need to exist with what time stamp.
+Write answer in the following form:
+Write(K) between u and v with time stamp between g and h.
+Write smallest possible value of u and g and biggest possible for v and h.
+
+Solution: 
+33-41 with Time stamp 9-16
+57-inf with TS bigger than 23
