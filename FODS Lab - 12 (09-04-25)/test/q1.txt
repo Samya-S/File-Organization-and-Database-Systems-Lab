@@ -1,0 +1,8 @@
+Q1: Make smallest example: 
+    Use minimum run and minimum need. 
+    Wait-die with P older and wound-wait with Q older are successful and others fail. 
+    P waits 23-31. 
+
+Solution:
+P: run(23) need(K)
+Q: need(K) run(31)
