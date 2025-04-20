@@ -1,0 +1,6 @@
+Q2: Take smallest example of B+ tree. An element 46 is deleted then inserted. The original tree is not obtained. 
+Make tree after deletion and insertion also. Heavy deduction when tree is not smallest.
+
+Solution:
+
+[(10,20,21)(22,46)]->[(10,20)(21,22)]->[(10,20)(21,22,46)]
